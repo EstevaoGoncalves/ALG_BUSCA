@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+
+public class Exemplo2 {
+
+	public static void main(String[] args) {
+		
+		char[] caracteres = carregarVetor();
+		
+		exibirValoresEncontrados(caracteres, 'c');
+	}
+	
+	private static void exibirValoresEncontrados(char[] caracteres, char caractere){
+		
+		boolean flag = false;
+		
+		for (int i = 0; i < caracteres.length; i++) {
+			if(caracteres[i] == caractere){
+				System.out.println("Letra encontrada na posição [" + (i+1) + "].");
+				flag = true;
+			}
+		}
+		if (flag == false) {
+			System.out.println("Letra não encontrada!");
+		}
+	}
+	
+	private static char[] carregarVetor(){
+		
+		char[] caracteres = new char[5];
+		
+		Scanner entrada = new Scanner(System.in);
+		
+		for (int i = 0; i < caracteres.length; i++) {
+			System.out.println("Informe o caractere da posição [" + (i+1) + "]");
+			caracteres[i] = entrada.next().charAt(0);
+		}
+		
+		entrada.close();
+		
+		return caracteres;
+	}
+
+}
